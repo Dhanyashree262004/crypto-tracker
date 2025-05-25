@@ -1,11 +1,12 @@
+// src/pages/Home.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import CoinChart from '../components/CoinChart';
 
 function Home() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [watchlist, setWatchlist] = useState(() => {
-    // Load watchlist from localStorage or start empty
     const saved = localStorage.getItem('watchlist');
     return saved ? JSON.parse(saved) : [];
   });
@@ -30,13 +31,11 @@ function Home() {
     });
   }, []);
 
-  // Save watchlist to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
   }, [watchlist]);
 
   function addToWatchlist(coin) {
-    // Avoid duplicates
     if (!watchlist.find(c => c.id === coin.id)) {
       setWatchlist([...watchlist, coin]);
     }
@@ -47,6 +46,11 @@ function Home() {
   }
 
   if (loading) return <p>Loading...</p>;
+
+  // Prepare list of coin IDs for chart: show watchlist coins or default if empty
+  const chartCoinIds = watchlist.length > 0
+    ? watchlist.map(coin => coin.id)
+    : ['bitcoin', 'ethereum', 'dogecoin'];
 
   return (
     <div style={{ padding: 20 }}>
@@ -114,6 +118,10 @@ function Home() {
           </tbody>
         </table>
       )}
+
+      {/* Chart section */}
+      <CoinChart coinIds={watchlist.length > 0 ? watchlist.map(c => c.id) : ['bitcoin', 'ethereum', 'dogecoin']} />
+
     </div>
   );
 }
