@@ -1,30 +1,24 @@
-# Crypto Tracker 🪙
+# 🪙 Crypto Tracker
 
-A web app that displays real-time cryptocurrency prices and allows users to manage a watchlist.
+A web app to track top 10 cryptocurrencies using the CoinGecko API. Built with the MERN stack.
 
----
+## 🚀 Features
 
-## 🔥 Features
+- 📊 Live crypto price updates (Bitcoin, Ethereum, etc.)
+- 🔁 Watchlist (add coins you want to track)
+- 📈 Charts for coin price history (coming soon)
+- 💄 Responsive UI (can enhance with Tailwind)
+- ☁️ Deployable frontend + backend
 
-- 📈 Live prices for top 10 cryptocurrencies
-- ❤️ Add/remove coins to/from a personal watchlist
-- 💾 Watchlist saved in browser (localStorage)
-- 🌐 Powered by the CoinGecko public API
+## 📦 Tech Stack
 
----
+- Frontend: React.js, Axios, React Router
+- Backend: Express.js, Node.js
+- (Optional): MongoDB, Mongoose
+- API: CoinGecko Public API
 
-## 🛠️ Technologies Used
+## 💻 How to Run
 
-- React.js
-- Axios (for HTTP requests)
-- CoinGecko API
-- LocalStorage
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Dhanyashree262004/crypto-tracker.git
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/Dhanyashree262004/crypto-tracker.git
